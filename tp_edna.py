@@ -1,5 +1,7 @@
 import numpy as np
 from PIL import Image
+import math
+
 def get_grid_coords(h, w, dot_size, angle_deg):
     positions = []
     angle_rad = math.radians(angle_deg)
@@ -36,7 +38,26 @@ def separateChannels(image):
 
 R,G,B=separateChannels()
 
-large,height=R.shape()
+height_red,width_red=R.shape
+height_blue,width_blue=B.shape
+height_green,width_green=G.shape
+
 dot_size=5 #LO PONE EL USUARIO
 angle=15 #LO PONE EL USUARIO
-chords_R=get_grid_coords(large,height,dot_size,angle)
+
+chords_list_red=get_grid_coords(height_red,width_red,dot_size,angle)
+chords_list_blue=get_grid_coords(height_blue,width_blue,dot_size,angle)
+chords_list_green=get_grid_coords(height_green,width_green,dot_size,angle)
+
+#new_red_channel = np.ones((height_red, width_red), dtype=np.uint8) * 255 EN DUDA , ES LO DE SUBIR TODO A 255 PERO NO ENTENDI MUY BIEN
+
+for coordenada in chords_list_red:
+    columna=coordenada[0]
+    fila=coordenada[1]
+
+    pixel_intensity=R[fila,columna]
+
+    max_radius=dot_size/2
+    radius = max_radius * (1 - pixel_intensity / 255)
+
+    #FALTA DIBUJAR EL CIRCULO
