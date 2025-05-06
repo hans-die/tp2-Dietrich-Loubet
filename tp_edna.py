@@ -1,5 +1,5 @@
-import numpy as np
 from PIL import Image
+import numpy as np
 import math
 
 def get_grid_coords(h, w, dot_size, angle_deg):
@@ -29,35 +29,88 @@ def get_grid_coords(h, w, dot_size, angle_deg):
                 positions.append((ix, iy))
     return positions
 
-def separateChannels(image):
-    imagen=Image.open(r"C:\Users\loube\Documents\TP\test_images\alonso.jpeg")
-    img_array=np.array(imagen)
-    R,G,B=img_array[:,:,1],img_array[:,:,1],img_array[:,:,2]
+def separar_rgb(imagen:str): #SEPARAMOS EN CANALES LA IMAGEN, ROJO VERDE, AZUL, Y RETORNAMOS LOS CANALES EN FORMA DE ARRAY
+    imagen_open = Image.open(imagen)
+    imagen_array = np.array(imagen_open)
+    rojo = imagen_array[:,:,0]
+    verde = imagen_array[:,:,1]
+    azul = imagen_array[:,:,2]
+    return rojo, verde, azul
 
-    return R,G,B
+def height_width(r,g,b): #ACA CONSEGUIMOS EL ANCHO Y ALTO DE CADA CANAL, PARA LUEGO PONERLO EN GET GRID COORDS
+    height_red , width_red = r.shape
+    height_blue , width_blue= g.shape
+    height_green , width_green= b.shape
+    return height_red, width_red, height_blue, width_blue, height_green, width_green
 
-R,G,B=separateChannels()
+#DEFINIMOS LA IMAGEN Y SEPARAMOS EN CANALES
+r, g, b = separar_rgb("/Users/hansdietrich/Documents/VS/UDESA/TP2/soccer.png")
+height_red, width_red, height_blue, width_blue, height_green, width_green = height_width(r,g,b)
 
-height_red,width_red=R.shape
-height_blue,width_blue=B.shape
-height_green,width_green=G.shape
+dot_size = 5 #LO PONE EL USUARIO
+angle = 15,45,0 #here go there
 
-dot_size=5 #LO PONE EL USUARIO
-angle=15 #LO PONE EL USUARIO
+#CONSEGUIMOS LAS COORDENADAS DONDE ESTAN LOS PUNTOS CENTRALES PARA DIBUJAR EL CIRCULO
+chords_list_red = get_grid_coords(height_red ,width_red ,dot_size ,angle)
+chords_list_blue = get_grid_coords(height_blue ,width_blue ,dot_size ,angle)
+chords_list_green = get_grid_coords(height_green ,width_green ,dot_size ,angle)
 
-chords_list_red=get_grid_coords(height_red,width_red,dot_size,angle)
-chords_list_blue=get_grid_coords(height_blue,width_blue,dot_size,angle)
-chords_list_green=get_grid_coords(height_green,width_green,dot_size,angle)
 
-#new_red_channel = np.ones((height_red, width_red), dtype=np.uint8) * 255 EN DUDA , ES LO DE SUBIR TODO A 255 PERO NO ENTENDI MUY BIEN
+array_white_r = np.full((height_red, width_red),255, dtype = np.uint8)  #Fondo blanco
+array_white_g = np.full((height_green, width_green),255, dtype = np.uint8)
+array_white_b = np.full((height_blue, width_blue),255, dtype = np.uint8)
 
-for coordenada in chords_list_red:
-    columna=coordenada[0]
-    fila=coordenada[1]
+for chord in chords_list_red:
+    column = int(chord[0])
+    row = int(chord[1])
 
-    pixel_intensity=R[fila,columna]
+    pixel_intensity = r[row,column]
 
-    max_radius=dot_size/2
-    radius = max_radius * (1 - pixel_intensity / 255)
+    max_radius = dot_size/2
+    radius = int(max_radius * (1 - pixel_intensity / 255))
 
-    #FALTA DIBUJAR EL CIRCULO
+    #RECORRO UNA CUADRICULA CERCA DEL CIRCULO QUE SE FIJE QUE PUNTOS ESTAN DENTRO DEL CIRCULO
+    for i in range((row - radius),(row + radius)+1):  
+        for j in range((column - radius),(column + radius)+1):
+            if 0 <= i < height_red and 0 <= j < width_red: #SE FIJA SI ESTAMOS EN LA MATRIZ
+                if (i - row)**2 + (j - column)**2 <= radius**2: #CHEQUEO ESTO DE ECUACION DADA
+                    array_white_r[i, j] = 0 
+
+for chord in chords_list_green:
+    column = int(chord[0])
+    row = int(chord[1])
+
+    pixel_intensity = g[row,column]
+
+    max_radius = dot_size/2
+    radius = int(max_radius * (1 - pixel_intensity / 255))
+
+    #RECORRO UNA CUADRICULA CERCA DEL CIRCULO QUE SE FIJE QUE PUNTOS ESTAN DENTRO DEL CIRCULO
+    for i in range((row - radius),(row + radius)+1):  
+        for j in range((column - radius),(column + radius)+1):
+            if 0 <= i < height_green and 0 <= j < width_green: #SE FIJA SI ESTAMOS EN LA MATRIZ
+                if (i - row)**2 + (j - column)**2 <= radius**2: #CHEQUEO ESTO DE ECUACION DADA
+                    array_white_g[i, j] = 0 
+
+for chord in chords_list_blue:
+    column = int(chord[0])
+    row = int(chord[1])
+
+    pixel_intensity = b[row,column]
+
+    max_radius = dot_size/2
+    radius = int(max_radius * (1 - pixel_intensity / 255))
+
+    #RECORRO UNA CUADRICULA CERCA DEL CIRCULO QUE SE FIJE QUE PUNTOS ESTAN DENTRO DEL CIRCULO
+    for i in range((row - radius),(row + radius)+1):  
+        for j in range((column - radius),(column + radius)+1):
+            if 0 <= i < height_blue and 0 <= j < width_blue: #SE FIJA SI ESTAMOS EN LA MATRIZ
+                if (i - row)**2 + (j - column)**2 <= radius**2: #CHEQUEO ESTO DE ECUACION DADA
+                    array_white_b[i, j] = 0 
+print("Forma R:", array_white_r.shape)
+print("Forma G:", array_white_g.shape)
+print("Forma B:", array_white_b.shape)
+final_array = np.stack([array_white_r, array_white_g , array_white_b], axis=2)
+nueva_imagen = Image.fromarray(final_array.astype(np.uint8))
+nueva_imagen.save("imagen_invertida4.png")
+print("Forma final_array:", final_array.shape)
