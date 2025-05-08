@@ -10,6 +10,10 @@ The **Halftone** filter simulates vintage print techniques by converting each RG
 
 ## 🧠 **K-Means quantization**:
 
+The K-Means filter reduces the number of colors in the image by grouping similar colors into clusters. It applies the K-Means clustering algorithm in RGB space, replacing each pixel’s original color with the nearest cluster centroid.
+
+This results in a simplified version of the image that maintains visual structure while reducing color complexity. It is useful for image compression, stylization, or artistic effects.
+
 
 ## ✨ Features
 - 🧾 **Interactive prompts**: Allows users to customize point size, angles, and number of colors.
