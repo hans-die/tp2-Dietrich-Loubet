@@ -1,5 +1,4 @@
 # Tp Edna - Image Editor
-## Ejemplo de resultados
 
 **Original** | **Halftone** | **KMeans**
 :--:|:--:|:--:
