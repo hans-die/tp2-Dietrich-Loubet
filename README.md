@@ -1,10 +1,10 @@
-# Tp Edna - Image Editor
+# 🎨 Edna - Image Editor
 
 **Edna** is a simple image editor created for an academic project. It allows users to apply two quantization techniques—**Halftone** and **K-Means**—to modify and stylize images in creative ways. The program is fully interactive and offers users multiple customization options.
 
 ---
 
-## 🎨 **Halftone Filter**
+## 🧬 **Halftone Filter**
 
 The **Halftone** filter simulates vintage print techniques by converting each RGB channel into a grid of circular dots. The dot size varies based on pixel intensity—darker areas produce larger dots. Each channel is rotated at a different angle to enhance separation and avoid pattern overlap, recreating a stylized, retro aesthetic.
 
