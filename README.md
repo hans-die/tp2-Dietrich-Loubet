@@ -2,10 +2,15 @@
 
 **Edna** is a simple image editor created for an academic project. It allows users to apply two quantization techniques—**Halftone** and **K-Means**—to modify and stylize images in creative ways. The program is fully interactive and provides the user with multiple options.
 
-## ✨ Features
+##🎨 Halftone Filter
+
+The Halftone filter simulates vintage print techniques by converting each RGB channel into a grid of circular dots. The dot size varies based on pixel intensity—darker areas produce larger dots. Each channel is rotated at a different angle to enhance separation and avoid pattern overlap, recreating a stylized, retro aesthetic.
 
 - 🎨 **Halftone filter**: Recreates retro-style images with vintage printing techniques
 - 🧠 **K-Means quantization**: Reduces the number of colors in an image while preserving visual similarity.
+
+
+## ✨ Features
 - 🧾 **Interactive prompts**: Allows users to customize point size, angles, and number of colors.
 - 💾 Saves the processed images with custom names
 
