@@ -32,7 +32,6 @@ def get_grid_coords(h:int, w:int, dot_size:int, angle_deg:int):
     return positions
 
 def split_rgb(imagen:str): #SEPARAMOS EN CANALES LA IMAGEN, ROJO VERDE, AZUL, Y RETORNAMOS LOS CANALES EN FORMA DE ARRAY
-    imagen_open = Image.open(imagen)
     imagen_array = np.array(imagen_open)
     rojo = imagen_array[:,:,0]
     verde = imagen_array[:,:,1]
