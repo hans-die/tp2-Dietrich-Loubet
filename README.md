@@ -1,6 +1,6 @@
 # Tp Edna - Image Editor
 
-**Edna** is a simple image editor created for an academic project. It allows users to apply two quantization techniques—**Halftone** and **K-Means**—to modify and stylize images in creative ways. The program is fully interactive and designed for use via the terminal.
+**Edna** is a simple image editor created for an academic project. It allows users to apply two quantization techniques—**Halftone** and **K-Means**—to modify and stylize images in creative ways. The program is fully interactive and provides the user with multiple options.
 
 ---
 
