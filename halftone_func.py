@@ -5,6 +5,13 @@ import math
 #Functions Halftone
 
 def get_grid_coords(h:int, w:int, dot_size:int, angle_deg:int):
+    """
+    Calcula las coordenadas de una grilla rotada que cubre una imagen. Genera una lista de coordenadas que representan
+    los centros de una grilla de puntos.
+    ------
+    Returns:
+    -Lista de coordenadas (x,y): List of tuple
+    """
     positions = []
     angle_rad = math.radians(angle_deg)
     cx, cy = w / 2, h / 2 # centro de la imagen
@@ -31,20 +38,38 @@ def get_grid_coords(h:int, w:int, dot_size:int, angle_deg:int):
                 positions.append((ix, iy))
     return positions
 
-def split_rgb(imagen:str): #SEPARAMOS EN CANALES LA IMAGEN, ROJO VERDE, AZUL, Y RETORNAMOS LOS CANALES EN FORMA DE ARRAY
-    imagen_array = np.array(imagen_open)
+def split_rgb(imagen:str): 
+    """
+    Separa en 3 canales (R,G,B) a la imagen.
+    ------
+    Returns:
+    -Canales RGB: int
+    """
+    imagen_array = np.array(imagen)
     rojo = imagen_array[:,:,0]
     verde = imagen_array[:,:,1]
     azul = imagen_array[:,:,2]
     return rojo, verde, azul
 
-def height_width(r:list,g:list,b:list): #ACA CONSEGUIMOS EL ANCHO Y ALTO DE CADA CANAL, PARA LUEGO PONERLO EN GET GRID COORDS
-    height_red , width_red = r.shape
-    height_blue , width_blue= g.shape
-    height_green , width_green= b.shape
-    return height_red, width_red, height_blue, width_blue, height_green, width_green
+def height_width(r:list): #ACA CONSEGUIMOS EL ANCHO Y ALTO DE CADA CANAL, PARA LUEGO PONERLO EN GET GRID COORDS
+    """
+    Devuelve el alto y ancho de la imagen.
+    ------
+    Returns:
+    Height: int
+    Width: int
+    """
+    height , width = r.shape
+    return height, width
 
 def draw_circle(chords_list:list, dot_size:float, height:int, width:int, array_white:list, color:list):
+    """
+    Dibuja circulos negros en una matriz blanca segun la intensidad de un canal de color.
+    Para cada coordenada calula el radio y dibuja un circulo
+    ------
+    Return:
+    Array white: np.ndarray
+    """
     for chord in chords_list:
         column = int(chord[0])
         row = int(chord[1])
