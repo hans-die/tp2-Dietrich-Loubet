@@ -8,7 +8,8 @@
 - 🧠 **K-Means quantization**: Reduces the number of colors in an image while preserving visual similarity.
 - 🧾 **Interactive prompts**: Allows users to customize point size, angles, and number of colors.
 - 💾 Saves the processed images with custom names
-  ---
+
+---
 
 **Original** | **Halftone** | **KMeans**
 :--:|:--:|:--:
