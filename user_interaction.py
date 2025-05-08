@@ -15,14 +15,14 @@ def interaction():
             imagen_open = Image.open(imagen)
             break
         except FileNotFoundError:
-            print("-La ruta de la imagen es invalida. Intente denuevo")
+            print("No se encontró la imagen. Por favor, verifique la ruta e intente nuevamente.")
             continue
     while True:
         metodo = input("Seleccione el método de cuantización (halftone/kmeans): ")
         if metodo.upper() == "HALFTONE" or metodo.upper() == "KMEANS":
             break
         else:
-            print("-Ingrese Halftone o Kmeans. Intente denuevo")
+            print("Ingrese Halftone o Kmeans. Intente denuevo")
             continue
     return (metodo.upper(),imagen_open)
 def interaction_halftone():
