@@ -1,6 +1,13 @@
 from PIL import Image
 
 def interaction():
+    """
+    Pide al usuario la ruta de la imagen y el metodo de cuantizacion.
+    -------
+    Returns: 
+    -Metodo selecionado: str 
+    -Imagen cargada: Image
+    """
     print("--- Edicion de Imagenes ---")
     while True:
         imagen = input("Ingrese la ruta de la imagen: ")
@@ -8,7 +15,7 @@ def interaction():
             imagen_open = Image.open(imagen)
             break
         except FileNotFoundError:
-            print("-La ruta de la imagen es invalida. Intente denuevo.")
+            print("-La ruta de la imagen es invalida. Intente denuevo")
             continue
     while True:
         metodo = input("Seleccione el método de cuantización (halftone/kmeans): ")
@@ -17,8 +24,15 @@ def interaction():
         else:
             print("-Ingrese Halftone o Kmeans. Intente denuevo")
             continue
-    return metodo.upper(),imagen_open
+    return (metodo.upper(),imagen_open)
 def interaction_halftone():
+    """
+    Pide al usuario el tamaño de los puntos y los angulos de rotacion para los canales RGB
+    -------
+    Returns:
+    -Dot Size: int
+    -Angles: int
+    """
     while True:
         dot_size_input = input("Ingrese el tamaño de los puntos (Aprieta enter para elegir el default): ").strip() #.strip para borrar postibles espacios
         if dot_size_input != "":
@@ -50,6 +64,12 @@ def interaction_halftone():
     name = input("Ingrese el nombre para guardar la imagen: ")
     return dot_size, angle_r, angle_g, angle_b, name
 def interaction_kmeans():
+    """
+    Pide al usuario el numero de colores deseados.
+    -------
+    Return:
+    -Colors: int
+    """
     while True:
         colors_input = input("Ingrese el numero de colores deseados (Ingrese enter para elegir el default): ").strip()
         if colors_input != "":
