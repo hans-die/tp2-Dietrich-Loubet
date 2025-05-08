@@ -13,7 +13,7 @@ The **Halftone** filter simulates vintage print techniques by converting each RG
 
 ## ✨ Features
 - 🧾 **Interactive prompts**: Allows users to customize point size, angles, and number of colors.
-- 💾 Saves the processed images with custom names
+- 💾 Saves the processed images with custom names in specific folders
 
 ---
 
