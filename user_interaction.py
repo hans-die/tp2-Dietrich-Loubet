@@ -8,7 +8,7 @@ def interaction():
             imagen_open = Image.open(imagen)
             break
         except FileNotFoundError:
-            print("")
+            print("-La ruta de la imagen es invalida. Intente denuevo.")
             continue
     while True:
         metodo = input("Seleccione el método de cuantización (halftone/kmeans): ")
