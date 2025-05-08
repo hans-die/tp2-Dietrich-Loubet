@@ -36,3 +36,6 @@ This results in a simplified version of the image that maintains visual structur
 ## 🎓 Authors
 
 Made by Hans Dietrich and Francisco Loubet – AI Engineering Students.
+
+---
+🖼️ This project was developed as part of a computational thinking course at Universidad de San Andrés.
