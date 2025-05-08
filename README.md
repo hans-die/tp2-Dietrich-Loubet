@@ -8,7 +8,7 @@
 
 The **Halftone** filter simulates vintage print techniques by converting each RGB channel into a grid of circular dots. The dot size varies based on pixel intensity—darker areas produce larger dots. Each channel is rotated at a different angle to enhance separation and avoid pattern overlap, recreating a stylized, retro aesthetic.
 
-## 🧠 **K-Means quantization**:
+## 🧠 **K-Means quantization**
 
 The K-Means filter reduces the number of colors in the image by grouping similar colors into clusters. It applies the K-Means clustering algorithm in RGB space, replacing each pixel’s original color with the nearest cluster centroid.
 
