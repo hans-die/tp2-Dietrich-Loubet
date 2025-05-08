@@ -1,7 +1,5 @@
 # Tp Edna - Image Editor
 
-<p align="center">
-  <img src="generated_photos/soccer.png" width="30%" />
-  <img src="generated_photos/soccer_halftone.png" width="30%" />
-  <img src="generated_photos/soccer_kmeans.png" width="30%" />
-</p>
+![original](generated_photos/soccer.png)
+![halftone](generated_photos/soccer_halftone.png)
+![kmeans](generated_photos/soccer_kmeans.png)
