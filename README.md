@@ -8,7 +8,16 @@
 - 🧠 **K-Means quantization**: Reduces the number of colors in an image while preserving visual similarity.
 - 🧾 **Interactive prompts**: Allows users to customize point size, angles, and number of colors.
 - 💾 Saves the processed images with custom names to a folder of your choice.
+- 
 
 **Original** | **Halftone** | **KMeans**
 :--:|:--:|:--:
 ![original](https://udesa-pc.github.io/tps/tp2/img/soccer.bmp) | ![halftone](https://udesa-pc.github.io/tps/tp2/img/soccer_halftone.png) | ![kmeans](https://udesa-pc.github.io/tps/tp2/img/soccer_kmeans.png)
+
+
+
+
+
+## 🎓 Authors
+
+Made by Hans Dietrich and Francisco Loubet – AI Engineering Students.
