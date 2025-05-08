@@ -3,6 +3,7 @@ import numpy as np
 import math
 import halftone_func as hf
 import user_interaction as ui
+import K-means_func as kf
 
 while True:
     metodo, imagen_open = ui.interaction() # El usuario carga la imagen y decide que metodo usar
