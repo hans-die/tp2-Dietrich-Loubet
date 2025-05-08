@@ -10,6 +10,13 @@ The **Halftone** filter simulates vintage print techniques by converting each RG
 
 ## 🧠 **K-Means quantization**:
 
+## 🗂️ File Overview
+
+- `tp_edna_main.py`: Main script that coordinates user interaction and image processing.
+- `halftone_func.py`: Contains all the functions related to the Halftone filter logic.
+- `user_interaction.py`: Handles terminal inputs, validations, and user experience flow.
+- `kmeans.py`: (To be implemented) Will contain the logic for K-Means color quantization.
+- `generated_photos/`: Folder where all edited images are saved automatically.
 
 ## ✨ Features
 - 🧾 **Interactive prompts**: Allows users to customize point size, angles, and number of colors.
