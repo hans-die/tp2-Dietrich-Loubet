@@ -53,7 +53,7 @@ def interaction_halftone():
         angles = input("Ingrese los ángulos de rotación para los canales RGB (Ej: 15,45,60. Si desea el default, presione enter): ").strip()
         if angles != "":
             try:
-                angle_r, angle_g, angle_b = [x.strip() for x in angles.split(",")]
+                angle_r, angle_g, angle_b = [int(x.strip()) for x in angles.split(",")]
                 break
             except ValueError:
                 print("-El formato es invalido. Intente denuevo.")
