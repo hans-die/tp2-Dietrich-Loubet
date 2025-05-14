@@ -100,3 +100,7 @@ end_time = time.time()
 elapsed_time = end_time - start_time
 
 print(f"Tiempo de ejecución: {elapsed_time:.2f} segundos")
+
+
+
+
