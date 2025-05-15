@@ -1,8 +1,20 @@
-from PIL import Image
 import numpy as np
 import math
 
 #Functions Halftone
+
+def split_rgb(imagen:str): 
+    """
+    Separa en 3 canales (R,G,B) a la imagen.
+    ------
+    Returns:
+    -Canales RGB: int
+    """
+    imagen_array = np.array(imagen)
+    rojo = imagen_array[:,:,0]
+    verde = imagen_array[:,:,1]
+    azul = imagen_array[:,:,2]
+    return rojo, verde, azul
 
 def get_grid_coords(h:int, w:int, dot_size:int, angle_deg:int):
     """
@@ -38,50 +50,26 @@ def get_grid_coords(h:int, w:int, dot_size:int, angle_deg:int):
                 positions.append((ix, iy))
     return positions
 
-def split_rgb(imagen:str): 
+def draw_circle(coords:list, dot_size:float,color:list):
     """
-    Separa en 3 canales (R,G,B) a la imagen.
-    ------
-    Returns:
-    -Canales RGB: int
-    """
-    imagen_array = np.array(imagen)
-    rojo = imagen_array[:,:,0]
-    verde = imagen_array[:,:,1]
-    azul = imagen_array[:,:,2]
-    return rojo, verde, azul
-
-def height_width(r:list): #ACA CONSEGUIMOS EL ANCHO Y ALTO DE CADA CANAL, PARA LUEGO PONERLO EN GET GRID COORDS
-    """
-    Devuelve el alto y ancho de la imagen.
-    ------
-    Returns:
-    Height: int
-    Width: int
-    """
-    height , width = r.shape
-    return height, width
-
-def draw_circle(chords_list:list, dot_size:float, height:int, width:int, array_white:list, color:list):
-    """
-    Dibuja circulos negros en una matriz blanca segun la intensidad de un canal de color.
+    Dibuja circulos en una matriz blanca segun la intensidad de un canal de color.
     Para cada coordenada calula el radio y dibuja un circulo
     ------
     Return:
     Array white: np.ndarray
     """
-    for chord in chords_list:
-        column = int(chord[0])
-        row = int(chord[1])
+    height, width = color.shape
+    array_white = np.full((height, width), 255, dtype = np.uint8)
 
-        pixel_intensity = color[row,column]
-
+    for x, y in coords:
+        pixel_intensity = color[y,x]
         radius = ((1 - pixel_intensity / 255)* dot_size *0.7)
+        r = int(round(radius))
 
         #RECORRO UNA CUADRICULA CERCA DEL CIRCULO QUE SE FIJE QUE PUNTOS ESTAN DENTRO DEL CIRCULO
-        for i in range(int(row - radius),int(row + radius)+1):  
-            for j in range(int(column - radius),int(column + radius)+1):
+        for i in range(y - r, y + r + 1):  
+            for j in range(x - r, x + r + 1):
                 if 0 <= i < height and 0 <= j < width: #SE FIJA SI ESTAMOS EN LA MATRIZ
-                    if (i - row)**2 + (j - column)**2 <= radius**2: #CHEQUEO ESTO DE ECUACION DADA
+                    if (i - y)**2 + (j - x)**2 <= radius**2: #CHEQUEO ESTO DE ECUACION DADA
                         array_white[i, j] = 0
     return array_white
