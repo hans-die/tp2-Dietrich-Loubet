@@ -7,6 +7,7 @@ def interaction():
     Returns: 
     -Metodo selecionado: str 
     -Imagen cargada: Image
+    -Imagen sin convertida en rgb: Image
     """
     print("--- 🎨 Edicion de Imagenes 🎨 ---")
     while True:
