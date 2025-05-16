@@ -7,7 +7,7 @@ import K_means_func as kf
 import time
 
 if __name__ == "__main__":
-    contador = 0
+    counter = 0
     while True:
         metodo, imagen_open, imagen  = ui.interaction() # El usuario carga la imagen y decide que metodo usar
         real_format = imagen.format
@@ -39,11 +39,11 @@ if __name__ == "__main__":
             elapsed = time.time() - start_time
             print(f"\n✅ Imagen guardada exitosamente en {elapsed:.2f} segundos.")
 
-            muestra = Image.fromarray(both_images.astype(np.uint8))
-            muestra.show()
+            preview_ht = Image.fromarray(both_images.astype(np.uint8))
+            preview_ht.show()
             elapsed = time.time() - start_time
-            contador += 1  #Para que no se sobre escriba en el caso que el usuario use el mismo nombre 2 veces.
-            new_image_h.save(f"/Users/hansdietrich/Documents/VS/UDESA/TP2_2/imagenes_generadas/{name}{contador}.{real_format.lower()}",format=real_format)
+            counter += 1  #Para que no se sobre escriba en el caso que el usuario use el mismo nombre 2 veces.
+            new_image_h.save(f"/Users/hansdietrich/Documents/VS/UDESA/TP2_2/imagenes_generadas/{name}{counter}.{real_format.lower()}",format=real_format)
             #Continuar?
             if ui.decision():
                 continue
@@ -56,7 +56,7 @@ if __name__ == "__main__":
             start_time = time.time()
             print("🧠 K-Means quantization en ejecucion...")
 
-            pixels_height, pixels_width, pixels_list, pixels = kf.recorrer_pixel(imagen_open)
+            pixels_height, pixels_width, pixels_list, pixels = kf.get_all_pixels(imagen_open)
 
             centroids, list_pixels_centroids = kf.find_centroids(pixels_list,clusters_quantity)
 
@@ -65,14 +65,14 @@ if __name__ == "__main__":
             new_image_k = Image.fromarray(pixels.astype(np.uint8))
 
             both_images = np.concatenate((imagen_open,pixels), axis = 1)
-            muestra = Image.fromarray(both_images.astype(np.uint8))
-
+           
             elapsed = time.time() - start_time
             print(f"\n✅ Imagen guardada exitosamente en {elapsed:.2f} segundos.")
-
-            muestra.show()
-            contador += 1
-            new_image_k.save(f"/Users/hansdietrich/Documents/VS/UDESA/TP2_2/imagenes_generadas/{name}{contador}.{real_format.lower()}",format=real_format)
+            
+            preview_km = Image.fromarray(both_images.astype(np.uint8))
+            preview_km.show()
+            counter += 1
+            new_image_k.save(f"/Users/hansdietrich/Documents/VS/UDESA/TP2_2/imagenes_generadas/{name}{counter}.{real_format.lower()}",format=real_format)
             #Continuar?
             if ui.decision():
                 continue
