@@ -13,8 +13,9 @@ def interaction():
     while True:
         imagen = input("Ingrese la ruta de la imagen: ")
         try:
-            imagen = Image.open(imagen)
-            imagen_rgb = imagen.convert("RGB")
+             with Image.open(imagen_input) as img:
+                imagen = img
+                 imagen_rgb = img.convert("RGB")
             break
         except FileNotFoundError:
             print("🚫 No se encontró la imagen. Por favor, verifique la ruta e intente nuevamente.")
