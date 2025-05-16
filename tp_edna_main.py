@@ -45,7 +45,7 @@ if __name__ == "__main__":
             counter += 1  #Para que no se sobre escriba en el caso que el usuario use el mismo nombre 2 veces.
             new_image_h.save(f"generated_photos/{name}{counter}.{real_format.lower()}",format=real_format)
             #Continuar?
-            if ui.decision():
+            if ui.ask_continue():
                 continue
             else:
                 break
