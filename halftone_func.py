@@ -7,6 +7,9 @@ def split_rgb(imagen:str):
     """
     Separa en 3 canales (R,G,B) a la imagen.
     ------
+    Entrada:
+    -Imagen para luego separarla en los canales
+    ------
     Returns:
     -Canales RGB: int
     """
@@ -54,6 +57,9 @@ def draw_circle(coords:list, dot_size:float,color:list):
     """
     Dibuja circulos en una matriz blanca segun la intensidad de un canal de color.
     Para cada coordenada calula el radio y dibuja un circulo
+    ------
+    Entrada:
+    -Las coordenadas de cada punto en forma de lista, el dot size del usuario y los colores.
     ------
     Return:
     Array white: np.ndarray
