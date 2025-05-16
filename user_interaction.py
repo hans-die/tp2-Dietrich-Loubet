@@ -96,7 +96,7 @@ def interaction_kmeans():
             break
     return colors
 
-def decision():
+def ask_continue():
     """
     Pregunta al usuario si desea continuar editando otra imagen.
     ------
