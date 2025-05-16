@@ -13,7 +13,7 @@ def interaction():
     while True:
         imagen = input("Ingrese la ruta de la imagen: ")
         try:
-             with Image.open(imagen_input) as img:
+            with Image.open(imagen_input) as img:
                 imagen = img
                 imagen_rgb = img.convert("RGB")
             break
