@@ -53,17 +53,14 @@ if __name__ == "__main__":
         else:
             clusters_quantity = ui.interaction_kmeans()
             name = input("Ingrese el nombre para guardar la imagen: ").strip()
-            start_time = time.time()
+            start_time = time.time() #Time
             print("🧠 K-Means quantization en ejecucion...")
 
-            pixels_height, pixels_width, pixels_list, pixels = kf.get_all_pixels(imagen_open)
-
+            pixels_height, pixels_width, pixels_list, pixels = kf.get_all_pixels(imagen_open) 
             centroids, list_pixels_centroids = kf.find_centroids(pixels_list,clusters_quantity)
-
             pixels = kf.join_pixels(pixels, pixels_height, pixels_width, list_pixels_centroids, centroids)
 
             new_image_k = Image.fromarray(pixels.astype(np.uint8))
-
             both_images = np.concatenate((imagen_open,pixels), axis = 1)
            
             elapsed = time.time() - start_time
