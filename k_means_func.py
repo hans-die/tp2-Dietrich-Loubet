@@ -97,7 +97,7 @@ def join_pixels(pixels:np.ndarray, pixels_height:int, pixels_width:int, list_pix
     Asigna a cada píxel de la imagen el color de su centroide correspondiente.
     ------
     Entrada:
-    -Los pixeles, su ancho y alto, la lista de centroides 
+    -Los pixeles, su ancho y alto, la lista de centroides y los nuevos centroides calculados en la funcion find centroids
     ------
     Returns:
     - pixels (np.ndarray): Imagen modificada con colores reemplazados por sus centroides."""
