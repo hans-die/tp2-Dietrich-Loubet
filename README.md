@@ -30,7 +30,7 @@ This results in a simplified version of the image that maintains visual structur
 - `tp_edna_main.py`: Main script that coordinates user interaction and image processing.
 - `halftone_func.py`: Contains all the functions related to the Halftone filter logic.
 - `user_interaction.py`: This file contains the functions that manages the interaction with the user.
-- `kmeans.py`: Contains all the functions related to K-Means Quantization filter.
+- `K-means_func.py`: Contains all the functions related to K-Means Quantization filter.
 - `generated_photos/`: Folder where all edited images are saved automatically.
 
 ## 🎓 Authors
