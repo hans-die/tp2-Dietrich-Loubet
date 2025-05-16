@@ -103,7 +103,7 @@ def decision():
     Returns:
     - bool: True si quiere continuar, False si no.
     """
-    decision = input('Presione Enter para usar el valor por defecto, sino escriba "No": ')
+    decision = input('Presione Enter para volver a usar el editor, sino escriba "No": ')
     if decision == "":
         return True
     else:
