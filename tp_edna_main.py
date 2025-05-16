@@ -3,7 +3,7 @@ import math
 import numpy as np
 import halftone_func as hf
 import user_interaction as ui
-import k_means_func as kf
+import K_means_func as kf
 import time
 
 if __name__ == "__main__":
