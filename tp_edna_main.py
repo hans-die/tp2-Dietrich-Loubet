@@ -8,7 +8,7 @@ import time
 import os
 
 base_dir = os.path.dirname(os.path.abspath(__file__))  # Ruta donde está el script
-save_dir = os.path.join(BASE_DIR, "generated_photos")   #Solucion para guardar la imagen nueva en una carpeta sin margen de error.
+save_dir = os.path.join(base_dir, "generated_photos")   #Solucion para guardar la imagen nueva en una carpeta sin margen de error.
 
 counter = 0
 while True:
