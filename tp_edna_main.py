@@ -43,7 +43,7 @@ if __name__ == "__main__":
             preview_ht.show()
             elapsed = time.time() - start_time
             counter += 1  #Para que no se sobre escriba en el caso que el usuario use el mismo nombre 2 veces.
-            new_image_h.save(f"imagenes_generadas/{name}{counter}.{real_format.lower()}",format=real_format)
+            new_image_h.save(f"generated_photos/{name}{counter}.{real_format.lower()}",format=real_format)
             #Continuar?
             if ui.decision():
                 continue
@@ -69,7 +69,7 @@ if __name__ == "__main__":
             preview_km = Image.fromarray(both_images.astype(np.uint8))
             preview_km.show()
             counter += 1
-            new_image_k.save(f"imagenes_generadas/{name}{counter}.{real_format.lower()}",format=real_format)
+            new_image_k.save(f"generated_photos/{name}{counter}.{real_format.lower()}",format=real_format)
             #Continuar?
             if ui.ask_continue():
                 continue
