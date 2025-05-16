@@ -74,7 +74,7 @@ if __name__ == "__main__":
             counter += 1
             new_image_k.save(f"/Users/hansdietrich/Documents/VS/UDESA/TP2_2/imagenes_generadas/{name}{counter}.{real_format.lower()}",format=real_format)
             #Continuar?
-            if ui.decision():
+            if ui.ask_continue():
                 continue
             else:
                 break
