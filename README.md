@@ -32,7 +32,18 @@ This results in a simplified version of the image that maintains visual structur
 - `user_interaction.py`: This file contains the functions that manages the interaction with the user.
 - `k-means_func.py`: Contains all the functions related to K-Means Quantization filter.
 - `generated_photos/`: Folder where all edited images are saved automatically.
+- `Photos`: Folder where users can upload images they want to edit with the tool.
 
+## 🧪 How to Use
+
+1. Clone the repository and enter the project folder.
+2. Make sure you have Python 3 installed. Then install the dependencies: `pip install pillow numpy`
+3. Add the image you want to edit inside the `Photos/` folder or use one of the default ones (copy path).
+4. Run the main code:  `python tp_edna_main.py`
+5. Follow the on-screen instructions to choose a filter (`halftone` or `kmeans`) and decide your personal parameters.
+6. The resulting image will be saved automatically in the `generated_photos/` folder and displayed next to the original.
+
+---
 ## 🎓 Authors
 
 Made by Hans Dietrich and Francisco Loubet – AI Engineering Students.
