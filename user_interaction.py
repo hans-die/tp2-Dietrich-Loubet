@@ -15,7 +15,7 @@ def interaction():
         try:
              with Image.open(imagen_input) as img:
                 imagen = img
-                 imagen_rgb = img.convert("RGB")
+                imagen_rgb = img.convert("RGB")
             break
         except FileNotFoundError:
             print("🚫 No se encontró la imagen. Por favor, verifique la ruta e intente nuevamente.")
