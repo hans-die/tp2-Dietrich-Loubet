@@ -59,7 +59,7 @@ def draw_circle(coords:list, dot_size:float,color:list):
     Para cada coordenada calula el radio y dibuja un circulo
     ------
     Entrada:
-    -Las coordenadas de cada punto en forma de lista, el dot size del usuario y los colores.
+    -Las coordenadas de cada punto en forma de lista, el dot size del usuario y el canal.
     ------
     Return:
     Array white: np.ndarray
