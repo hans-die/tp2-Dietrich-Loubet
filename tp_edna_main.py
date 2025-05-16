@@ -73,7 +73,7 @@ while True:
         preview_km = Image.fromarray(both_images.astype(np.uint8))
         preview_km.show()
         counter += 1
-        path_k = os.path.join(SAVE_DIR, f"{name}{counter}.{real_format.lower()}")
+        path_k = os.path.join(save_dir, f"{name}{counter}.{real_format.lower()}")
         new_image_k.save(path_k, format=real_format)
         #Continuar?
         if ui.ask_continue():
