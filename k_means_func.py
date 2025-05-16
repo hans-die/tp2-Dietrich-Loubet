@@ -8,6 +8,9 @@ def get_all_pixels(image:np.ndarray):  #Paso 1
     """
     Recorre una imagen representada como un array NumPy y convierte cada píxel en una lista de colores RGB.
     ------
+    Entrada:
+    -La imagen para luego recorrerla
+    ------
     Returns:
     - pixels_height (int): Alto de la imagen.
     - pixels_width (int): Ancho de la imagen.
@@ -26,6 +29,9 @@ def get_all_pixels(image:np.ndarray):  #Paso 1
 def find_centroids(pixels_list:list,clusters_quantity:int): #Paso 2
     '''
     Ejecuta el algoritmo de K-Means para agrupar colores de una imagen en un número fijo de clusters.
+    -------
+    Entrada:
+    -La lista de pixeles y la cantidad de clusters, el ultimo ingresado por el usuario.
     -------
     Returns:
     - centroids (list): Lista final de centroides optimizados tras iterar.
@@ -89,6 +95,9 @@ def find_centroids(pixels_list:list,clusters_quantity:int): #Paso 2
 def join_pixels(pixels:np.ndarray, pixels_height:int, pixels_width:int, list_pixels_centroids:list, centroids:list):
     """
     Asigna a cada píxel de la imagen el color de su centroide correspondiente.
+    ------
+    Entrada:
+    -Los pixeles, su ancho y alto, la lista de centroides 
     ------
     Returns:
     - pixels (np.ndarray): Imagen modificada con colores reemplazados por sus centroides."""
