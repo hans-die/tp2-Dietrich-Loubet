@@ -4,7 +4,7 @@ import math
 
 # Kmeans functions
 
-def recorrer_pixel(image:np.ndarray):  #Paso 1
+def get_all_pixels(image:np.ndarray):  #Paso 1
     """
     Recorre una imagen representada como un array NumPy y convierte cada píxel en una lista de colores RGB.
     ------
