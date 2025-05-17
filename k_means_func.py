@@ -41,7 +41,7 @@ def find_centroids(pixels_list:list,clusters_quantity:int): #Paso 2
         list_pixels_centroids = []
         for color in pixels_list:
             R1, G1, B1 = map(int,color) #Convierto a int para que el unit no tenga problemas, que en vez de 16 me de -240 cuando hace 10-250
-            best_distance = 10000
+            best_distance = 500
 
             for h, centroid in enumerate(centroids):
                 R2, G2, B2 = map(int,centroid)
