@@ -41,7 +41,9 @@ def find_centroids(pixels_list:list,clusters_quantity:int): #Paso 2
         list_pixels_centroids = []
         for color in pixels_list:
             R1, G1, B1 = map(int,color) #Convierto a int para que el unit no tenga problemas, que en vez de 16 me de -240 cuando hace 10-250
-            best_distance = 500
+            best_distance = 500 # Usamos 500 como distancia inicial máxima porque es mayor que la distancia RGB más grande posible (~442)
+            # La distancia entre colores se calcula con la fórmula de distancia euclidiana en 3D: sqrt((R1−R2)² + (G1−G2)² + (B1−B2)²)
+            # El valor máximo ocurre entre (0,0,0) y (255,255,255), que da aproximadamente 441.67.
 
             for h, centroid in enumerate(centroids):
                 R2, G2, B2 = map(int,centroid)
